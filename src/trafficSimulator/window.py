@@ -7,6 +7,8 @@ class Window:
         # Simulation to draw
         self.sim = sim
 
+        self.first = True
+
         # Set default configurations
         self.set_default_config()
 
@@ -139,8 +141,6 @@ class Window:
         if filled:
             gfxdraw.filled_circle(self.screen, *pos, radius, color)
 
-
-
     def polygon(self, vertices, color, filled=True):
         gfxdraw.aapolygon(self.screen, vertices, color)
         if filled:
@@ -195,7 +195,6 @@ class Window:
             centered=False
         )
 
-
     def draw_axes(self, color=(100, 100, 100)):
         x_start, y_start = self.inverse_convert(0, 0)
         x_end, y_end = self.inverse_convert(self.width, self.height)
@@ -233,16 +232,31 @@ class Window:
             )
 
     def draw_roads(self):
-        for road in self.sim.roads:
+        colors = [
+            ('Red', (255, 0, 0)),
+            ('Lime', (0, 255, 0)),
+            ('Yellow', (255, 255, 0)),
+            ('Cyan', (0, 255, 255)),
+            ('Magenta', (255, 0, 255)),
+            ('Gray', (128, 128, 128)),
+            ('Maroon', (128, 0, 0)),
+            ('Olive', (128, 128, 0)),
+            ('Green', (0, 128, 0)),
+            ('Purple', (128, 0, 128)),
+            ('Teal', (0, 128, 128))
+        ]
+        for i, road in enumerate(self.sim.roads):
             # Draw road background
             self.rotated_box(
                 road.start,
                 (road.length, 3.7),
                 cos=road.angle_cos,
                 sin=road.angle_sin,
-                color=(180, 180, 220),
+                color=colors[i % len(colors)][1],
                 centered=False
             )
+            if self.first:
+                print(f"Road {i} - {colors[i % len(colors)][0]}")
             # Draw road lines
             # self.rotated_box(
             #     road.start,
@@ -268,7 +282,7 @@ class Window:
                         sin=road.angle_sin
                     )   
             
-
+        self.first = False
 
             # TODO: Draw road arrow
 
@@ -290,7 +304,7 @@ class Window:
     def draw_signals(self):
         for signal in self.sim.traffic_signals:
             for i in range(len(signal.roads)):
-                color = (0, 255, 0) if signal.current_cycle[i] else (255, 0, 0)
+                color = (0, 255, 0) if signal.open[signal.roads[i][0]] else (255, 0, 0)
                 for road in signal.roads[i]:
                     a = 0
                     position = (
