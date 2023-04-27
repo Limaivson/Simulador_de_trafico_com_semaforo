@@ -1,5 +1,5 @@
 from ranker_standart_functions import *
-from traffic_light import TrafficLight
+from model_traffic_light import TrafficLight
 from traffic_sim import Street
 from math import ceil
 from random import randint
@@ -56,4 +56,4 @@ def fitness_func(light_control: TrafficLight, ways: int):
     return 100 * (total_wait_time + 100*changes) / (total_car_count * sim_time)
 
 if __name__ == "__main__":
-    print(fitness_func(TrafficLight(30, 10, 0.01), 3))
+    print(fitness_func(TrafficLight(10, 30, 0.01), 3))
