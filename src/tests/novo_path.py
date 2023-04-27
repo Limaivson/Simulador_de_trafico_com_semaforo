@@ -1,0 +1,82 @@
+from trafficSimulator import *
+import random
+
+# Create simulation
+sim = Simulation()
+
+
+RUA0_HORIZONTAL_DE = ((0, 100), (100, 100))
+RUA0_1_HORIZONTAL_DE = ((100, 100), (148, 100))
+RUA1_HORIZONTAL_DE = ((148, 100), (248, 100))
+RUA2_HORIZONTAL_DE = ((248, 100), (300, 100))
+RUA3_HORIZONTAL_ED = ((102, 104), (0, 104))
+RUA4_HORIZONTAL_ED = ((258, 104), (153, 104))
+RUA5_HORIZONTAL_ED = ((300, 104), (258, 104))
+RUA3_1_HORIZONTAL_ED = ((153, 104), (102, 104))
+# RUA3_2_HORIZONTAL_ED = ((148, 104), (93, 104))
+
+RUA6_HORIZONTAL_DE = ((0, 170), (148, 170))
+RUA7_HORIZONTAL_DE = ((150, 170), (248, 170))
+RUA8_HORIZONTAL_DE = ((250, 170), (300, 170))
+RUA9_HORIZONTAL_ED = ((153, 174), (0, 174))
+RUA10_HORIZONTAL_ED =((258, 174), (153, 174))
+RUA11_HORIZONTAL_ED =((300, 174), (258, 174))
+
+RUA12_HORIZONTAL_DE = ((75, 60), (148, 30))
+RUA12_1_HORIZONTAL_DE = ((0, 100), (75, 60))
+RUA13_HORIZONTAL_DE = ((148, 30), (248, 30))
+RUA14_HORIZONTAL_DE = ((248, 30), (300, 30))
+
+RUA15_VERTICAL_CB = ((150, 0), (150, 28))
+RUA16_VERTICAL_CB = ((150, 28), (150, 98))
+RUA17_VERTICAL_CB = ((150, 100), (150, 168))
+RUA18_VERTICAL_CB = ((150, 168), (150, 200))
+RUA19_VERTICAL_CB = ((250, 0), (250, 28))
+RUA20_VERTICAL_CB = ((250, 28), (250, 98))
+RUA21_VERTICAL_CB = ((250, 100), (250, 168))
+RUA22_VERTICAL_CB = ((250, 168), (250, 200))
+RUA23_VERTICAL_CB = ((254, 32), (254, 0))
+RUA24_VERTICAL_CB = ((254, 107), (254, 32))
+RUA25_VERTICAL_CB = ((254, 177), (254, 107))
+RUA26_VERTICAL_CB = ((254, 200), (254, 177))
+
+RUA27_DIAG_DE = ((50, 170), (100, 105))
+
+
+# Add multiple roads
+sim.create_roads([RUA0_HORIZONTAL_DE, RUA1_HORIZONTAL_DE, RUA2_HORIZONTAL_DE,RUA3_HORIZONTAL_ED,RUA4_HORIZONTAL_ED,RUA5_HORIZONTAL_ED,
+                  RUA6_HORIZONTAL_DE,RUA7_HORIZONTAL_DE,RUA8_HORIZONTAL_DE,RUA9_HORIZONTAL_ED,RUA10_HORIZONTAL_ED,RUA11_HORIZONTAL_ED,
+                  RUA12_HORIZONTAL_DE,RUA13_HORIZONTAL_DE,RUA14_HORIZONTAL_DE,RUA15_VERTICAL_CB,RUA16_VERTICAL_CB,RUA17_VERTICAL_CB,RUA18_VERTICAL_CB
+                  ,RUA19_VERTICAL_CB,RUA20_VERTICAL_CB,RUA21_VERTICAL_CB,RUA22_VERTICAL_CB,RUA23_VERTICAL_CB,RUA24_VERTICAL_CB,RUA25_VERTICAL_CB,
+                  RUA26_VERTICAL_CB,RUA27_DIAG_DE,RUA3_1_HORIZONTAL_ED,RUA0_1_HORIZONTAL_DE,RUA12_1_HORIZONTAL_DE]
+    
+
+    # # *curve_road((140, 100), (150, 110), (150, 100)),
+    # # *curve_road((150, 110), (160, 150), (150, 100)),
+    # ((50, 170), (100, 120)),
+)
+
+sim.create_gen({
+    'vehicle_rate': 20,
+    'vehicles': [
+        [1, {"path": [30,12,13,14]}],
+        [1000, {"path": [0,29,1,2]}],
+        [1, {"path": [27,29,1,2]}],
+        [1, {"path": [5,4,28,3]}],
+        [1, {"path": [26,25,24,23]}],
+        [1, {"path": [26,25,24,23]}],
+        [1, {"path": [6,7,8]}],
+        [1, {"path": [6,7,17,18]}],
+        [1, {"path": [11, 10, 9]}],
+        [1, {"path": [15,16,17,18]}],
+        [1, {"path": [30,12,13,14,20,21,22]}],
+        [1, {"path": [19,20,21,22]}]
+    ]
+})
+
+sim.create_signal([[0,1,28,4,5,29,12,7,6,10,11,13,30], [15,16,17,19,20,21,27,26,25,24]])
+
+# Start simulation
+win = Window(sim)
+win.offset = (-150, -110)
+win.run(steps_per_update=5)
