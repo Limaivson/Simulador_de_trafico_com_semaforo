@@ -16,7 +16,7 @@ def fitness_func(light_control: TrafficLight, ways: int):
     streets   = []
     green = randint(1, ways)
     for street in range(ways):
-        length = randint(200, 500)
+        length = randint(50, 150)
         print(f"Street {street}: {length}m")
         if street == green:
             streets.append(Street(iter_time, length, False))
@@ -27,11 +27,13 @@ def fitness_func(light_control: TrafficLight, ways: int):
     green_time_iterations = ceil(time_min/iter_time)
     total_wait_time = 0
     total_car_count = 0
+    changes = 0
 
     for iteration in range(iter_count):
         if green_time_iterations == 0:
             car_count = opengin_light_selector(streets)
             green_time_iterations = ceil(green_time(time_min, time_max, coef, car_count) / iter_time)
+            changes += 1
         for street in streets:
             exited_cars = street.iterate(iter_time)
             total_wait_time += exited_cars["stopped time"]
@@ -49,8 +51,9 @@ def fitness_func(light_control: TrafficLight, ways: int):
         total_wait_time += street.stopped_time_sum()
     print(total_wait_time)
     print(total_car_count)
-
-    return 100 * total_wait_time / (total_car_count * sim_time)
+    print(changes)
+    print(100 * total_wait_time / (total_car_count * sim_time))
+    return 100 * (total_wait_time + 250*changes) / (total_car_count * sim_time)
 
 if __name__ == "__main__":
-    print(fitness_func(TrafficLight(50, 10, 0.01), 3))
+    print(fitness_func(TrafficLight(60, 10, 0.01), 3))
