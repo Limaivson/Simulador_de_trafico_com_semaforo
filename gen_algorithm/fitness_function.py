@@ -53,7 +53,7 @@ def fitness_func(light_control: TrafficLight, ways: int):
     print(total_car_count)
     print(changes)
     print(100 * total_wait_time / (total_car_count * sim_time))
-    return 100 * (total_wait_time + 250*changes) / (total_car_count * sim_time)
+    return 100 * (total_wait_time + 100*changes) / (total_car_count * sim_time)
 
 if __name__ == "__main__":
-    print(fitness_func(TrafficLight(60, 10, 0.01), 3))
+    print(fitness_func(TrafficLight(30, 10, 0.01), 3))
