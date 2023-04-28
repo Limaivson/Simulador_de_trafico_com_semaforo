@@ -6,9 +6,9 @@ class TrafficLight:
     coef_range = [0.0000001,0.9999999]
 
     def __init__(self,time_min:float, time_max:float, coef:float):
-        self.__time_min = time_min
-        self.__time_max = time_max
-        self.__coef = coef
+        self.__time_min = self.time_min_range[0] + (self.time_min_range[1] - self.time_min_range[0])*time_min/100
+        self.__time_max = self.time_max_range[0] + (self.time_max_range[1] - self.time_max_range[0])*time_max/100
+        self.__coef = self.coef_range[0] + (self.coef_range[1] - self.coef_range[0])*coef/100
     
     def __repr__(self) -> str:
         return f'TrafficLight(time_min: {self.__time_min}, time_max: {self.__time_max}, coef: {self.__coef})'
