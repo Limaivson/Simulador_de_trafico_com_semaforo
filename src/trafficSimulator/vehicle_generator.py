@@ -1,8 +1,15 @@
 from .vehicle import Vehicle
 from numpy.random import randint
 
+
 class VehicleGenerator:
-    def __init__(self, sim, config={}):
+
+    generated_vehicles = 0
+
+    def __init__(self, sim, config=None):
+        if config is None:
+            config = {}
+
         self.sim = sim
 
         # Set default configurations
@@ -33,6 +40,7 @@ class VehicleGenerator:
         for (weight, config) in self.vehicles:
             r -= weight
             if r <= 0:
+                VehicleGenerator.generated_vehicles += 1
                 return Vehicle(config)
 
     def update(self):

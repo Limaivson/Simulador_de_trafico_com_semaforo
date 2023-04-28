@@ -2,12 +2,16 @@ import numpy as np
 
 
 class Vehicle:
-    def __init__(self, config={}):
-        # Set default configuration
+
+    global_wait_time = 0
+
+    def __init__(self, config=None):
+        if config is None:
+            config = {}
+
         self.stopped = False
-        self.stop_time = 0
         self.wait_time = 0
-        self.total_wait_time = 0
+        self.last_stop = 0
 
         self.l = 4
         self.s0 = 4
@@ -33,8 +37,12 @@ class Vehicle:
         for attr, val in config.items():
             setattr(self, attr, val)
 
-    def update(self, lead, dt):
+    def update(self, lead, dt, t):
         # Update position and velocity
+        if self.v == 0:
+            self.last_stop = t - dt
+            self.stopped = True
+
         if self.v + self.a*dt < 0:
             self.x -= 1/2*self.v*self.v/self.a
             self.v = 0
@@ -52,17 +60,19 @@ class Vehicle:
 
         self.a = self.a_max * (1-(self.v/self.v_max)**4 - alpha**2)
 
-        if self.stopped: 
+        if self.stopped:
+            Vehicle.global_wait_time += t - self.last_stop
+            self.wait_time += t - self.last_stop
+            self.last_stop = t
             self.a = -self.b_max*self.v/self.v_max
         
     def stop(self, t):
-        self.stop_time = t
+        self.last_stop = t
         self.stopped = True
 
     def unstop(self, t):
-        self.wait_time += t - self.stop_time
-        self.total_wait_time += self.wait_time
-        self.stopped = False
+        if self.stopped:
+            self.stopped = False
 
     def slow(self, v):
         self.v_max = v

@@ -27,4 +27,10 @@ sim.create_signal([[0], [2]])
 # Start simulation
 win = Window(sim)
 win.offset = (-150, -110)
-win.run(steps_per_update=5)
+data = win.run(steps_per_update=5)
+print(data)
+print(100 * (data['wait time'] / data['cars generated'] / data['simulation time']))
+for road, d in data['road data'].items():
+    print(road)
+    print("Car mean amount:", mean([x[0] for x in d]))
+    print("Car mean wait:", mean([x[1] for x in d]))

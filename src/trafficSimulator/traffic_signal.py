@@ -15,7 +15,7 @@ class TrafficSignal:
         self.id = TrafficSignal.ID
         TrafficSignal.ID += 1
 
-        self.open = {r: False for r in self.roads[0]}
+        self.open = {r[0]: False for r in self.roads}
 
         self.next_instruction_time = -float('inf')
 

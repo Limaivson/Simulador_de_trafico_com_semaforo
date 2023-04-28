@@ -1,11 +1,17 @@
+from . import Vehicle
 from .road import Road
 from copy import deepcopy
 from .vehicle_generator import VehicleGenerator
 from .traffic_signal import TrafficSignal
 
+
 class Simulation:
-    def __init__(self, config={}):
+
+    def __init__(self, config=None):
+
         # Set default configuration
+        if config is None:
+            config = {}
         self.set_default_config()
 
         # Update configuration
@@ -80,3 +86,21 @@ class Simulation:
     def run(self, steps):
         for _ in range(steps):
             self.update()
+
+    def statistics(self):
+
+        data = {}
+
+        for road in self.roads:
+            for vehicle in road.vehicles:
+                if vehicle.stopped:
+                    vehicle.unstop(self.t)
+
+            data[f"Road {road.id}"] = road.data
+
+        return {
+            'cars generated': VehicleGenerator.generated_vehicles,
+            'wait time': Vehicle.global_wait_time,
+            'simulation time': self.t,
+            'road data': data
+        }
