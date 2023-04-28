@@ -1,10 +1,18 @@
 from scipy.spatial import distance
 from collections import deque
+from numpy import isnan
+
 
 class Road:
+    ID = 0
+
     def __init__(self, start, end):
         self.start = start
         self.end = end
+
+        self.data = []
+        self.id = Road.ID
+        Road.ID += 1
 
         self.vehicles = deque()
 
@@ -29,8 +37,15 @@ class Road:
             return self.traffic_signal.current_cycle[i]
         return True
 
-    def update(self, dt):
+    def update(self, dt, t):
         n = len(self.vehicles)
+        stopped_vehicles_objs = [v for v in self.vehicles if v.v == 0]
+        self.stopped_vehicles = len(stopped_vehicles_objs)
+
+        if round(t, 2) % 1 == 0:
+            amount = sum([v.wait_time for v in stopped_vehicles_objs])
+            amount = round(amount) if not isnan(amount) else 0
+            self.data.append((self.stopped_vehicles, amount))
 
         if n > 0:
             # Update first vehicle

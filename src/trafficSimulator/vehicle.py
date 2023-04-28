@@ -1,9 +1,12 @@
 import numpy as np
 
+
 class Vehicle:
     def __init__(self, config={}):
         # Set default configuration
         self.set_default_config()
+
+        self.wait_time = 0
 
         # Update configuration
         for attr, val in config.items():
@@ -34,6 +37,10 @@ class Vehicle:
 
     def update(self, lead, dt):
         # Update position and velocity
+
+        if self.v == 0:
+            self.wait_time += dt
+
         if self.v + self.a*dt < 0:
             self.x -= 1/2*self.v*self.v/self.a
             self.v = 0

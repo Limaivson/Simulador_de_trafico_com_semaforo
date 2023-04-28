@@ -1,3 +1,4 @@
+from . import Vehicle
 from .road import Road
 from copy import deepcopy
 from .vehicle_generator import VehicleGenerator
@@ -43,7 +44,7 @@ class Simulation:
     def update(self):
         # Update every road
         for road in self.roads:
-            road.update(self.dt)
+            road.update(self.dt, self.t)
 
         # Add vehicles
         for gen in self.generators:
@@ -69,6 +70,7 @@ class Simulation:
                     new_vehicle.x = 0
                     # Add it to the next road
                     next_road_index = vehicle.path[vehicle.current_road_index]
+                    new_vehicle.wait_time = 0
                     self.roads[next_road_index].vehicles.append(new_vehicle)
                 # In all cases, remove it from its road
                 road.vehicles.popleft() 
@@ -80,3 +82,20 @@ class Simulation:
     def run(self, steps):
         for _ in range(steps):
             self.update()
+
+    def statistics(self):
+
+        data = {}
+
+        for road in self.roads:
+            for vehicle in road.vehicles:
+                if vehicle.stopped:
+                    vehicle.unstop(self.t)
+
+            data[f"Road {road.id}"] = road.data
+
+        return {
+            # 'wait time': Vehicle.global_wait_time,
+            'simulation time': self.t,
+            'road data': data
+        }

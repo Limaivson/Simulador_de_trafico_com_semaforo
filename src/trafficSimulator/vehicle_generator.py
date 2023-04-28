@@ -45,6 +45,7 @@ class VehicleGenerator:
                or road.vehicles[-1].x > self.upcoming_vehicle.s0 + self.upcoming_vehicle.l:
                 # If there is space for the generated vehicle; add it
                 self.upcoming_vehicle.time_added = self.sim.t
+                self.upcoming_vehicle.wait_time = 0
                 road.vehicles.append(self.upcoming_vehicle)
                 # Reset last_added_time and upcoming_vehicle
                 self.last_added_time = self.sim.t

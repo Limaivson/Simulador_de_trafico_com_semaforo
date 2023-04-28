@@ -1,5 +1,6 @@
 from src.trafficSimulator import *
 import random
+from numpy import mean
 
 # Create simulation
 sim = Simulation()
@@ -92,7 +93,7 @@ sim.create_roads([RUA0_HORIZONTAL_DE, RUA1_HORIZONTAL_DE, RUA2_HORIZONTAL_DE, RU
                   ])
 
 sim.create_gen({
-    'vehicle_rate': 8,
+    'vehicle_rate': 20,
     'vehicles': [
         [1, {"path": [30, 12, 13, 14, 31, 33, 50, 47, 51, 52, 53, 54, 55, 56, 44, 45, 49, 48]}],
         [1, {"path": [0, 29, 1, 2, 35, 36, 49, 48]}],
@@ -121,4 +122,8 @@ sim.create_signal([[0, 1, 28, 4, 5, 29, 12, 7, 6, 10, 11, 13, 30, 31, 33, 34, 36
 # Start simulation
 win = Window(sim)
 win.offset = (-150, -110)
-win.run(steps_per_update=5)
+data = win.run(steps_per_update=5, simulation_time=60)
+for road, d in data['road data'].items():
+    print(road)
+    print("Car mean amount:", mean([x[0] for x in d]))
+    print("Car mean wait:", mean([x[1] for x in d]))

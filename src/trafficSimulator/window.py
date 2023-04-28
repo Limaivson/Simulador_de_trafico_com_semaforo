@@ -28,7 +28,7 @@ class Window:
         self.mouse_down = False
 
 
-    def loop(self, loop=None):
+    def loop(self, loop=None, simulation_time=60):
         """Shows a window visualizing the simulation and runs the loop function."""
         
         # Create a pygame window
@@ -44,7 +44,7 @@ class Window:
 
         # Draw loop
         running = True
-        while running:
+        while running and self.sim.t < simulation_time:
             # Update simulation
             if loop: loop(self.sim)
 
@@ -84,11 +84,13 @@ class Window:
                 elif event.type == pygame.MOUSEBUTTONUP:
                     self.mouse_down = False           
 
-    def run(self, steps_per_update=1):
+    def run(self, steps_per_update=1, simulation_time=60):
         """Runs the simulation by updating in every loop."""
         def loop(sim):
             sim.run(steps_per_update)
-        self.loop(loop)
+        self.loop(loop, simulation_time)
+        print("End of simulation, t =", self.sim.t)
+        return self.sim.statistics()
 
     def convert(self, x, y=None):
         """Converts simulation coordinates to screen coordinates"""
