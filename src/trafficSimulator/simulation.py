@@ -27,9 +27,9 @@ class Simulation:
         self.traffic_signals = []
 
     def create_road(self, start, end):
-        road = Road(start, end)
-        self.roads.append(road)
-        return road
+        self.road = Road(start, end)
+        self.roads.append(self.road)
+        return self.road
 
     def create_roads(self, road_list):
         for road in road_list:
@@ -82,6 +82,8 @@ class Simulation:
         # Increment time
         self.t += self.dt
         self.frame_count += 1
+        # for i in range(len(self.roads)):
+        #     print("via",i, "qtd carro:", road.vehicles)
 
     def run(self, steps):
         for _ in range(steps):
