@@ -4,8 +4,8 @@ class Car():
     def __init__(self, dist: float) -> None:
         self.stopped = False
         self.dist = dist
-        self.max_vel = 40/3.6 # km/h -> m/s
-        self.acceleration = 8/3.6 # km/h² -> m/s²
+        self.max_vel = 30/3.6 # km/h -> m/s
+        self.acceleration = 6/3.6 # km/h² -> m/s²
         self.vel = 0
         self.time_stopped = 0
 

@@ -5,10 +5,10 @@ def green_time(time_min: float, time_max: float, coef: float, cars_count: int) -
         cars_count *= 0.5
         time_delta = time_max - time_min
         time = time_min + time_delta * (coef**(1/cars_count))
-        print(time)
+        # print(time)
         return time
     except:
-        print(time_min)
+        # print(time_min)
         return time_min
 
 def opengin_light_selector(street_list: list) -> Street:
