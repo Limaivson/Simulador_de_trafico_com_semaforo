@@ -8,7 +8,7 @@ def ff(light_control: TrafficLight, ways: int):
     time_min  = light_control.get_time_min()
     time_max  = light_control.get_time_max()
     coef      = light_control.get_coef()
-    iter_time = 1 # seccond
+    iter_time = 1200 # seccond
     sim_time  = 3600 # secconds
     summon_time = 2 # secconds
     summon_iter = ceil(summon_time / iter_time) # summons a car for each summon_iter count
