@@ -7,7 +7,6 @@ class Road:
         self.end = end
 
         self.vehicles = deque()
-
         self.init_properties()
 
     def init_properties(self):
@@ -31,7 +30,7 @@ class Road:
 
     def update(self, dt):
         n = len(self.vehicles)
-
+        
         if n > 0:
             # Update first vehicle
             self.vehicles[0].update(None, dt)
