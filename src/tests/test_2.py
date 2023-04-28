@@ -1,9 +1,7 @@
 from src.trafficSimulator import *
 import random
 from numpy import mean
-
-# Create simulation
-sim = Simulation()
+import json
 
 RUA0_HORIZONTAL_DE = ((0, 100), (100, 100))
 RUA0_1_HORIZONTAL_DE = ((100, 100), (148, 100))
@@ -75,71 +73,92 @@ via_61 = ((562, 104.2), (562, 171.7))
 
 via_100 = ((550, 100), (560, 100))
 
-# Add multiple roads
-sim.create_roads([RUA0_HORIZONTAL_DE, RUA1_HORIZONTAL_DE, RUA2_HORIZONTAL_DE, RUA3_HORIZONTAL_ED, RUA4_HORIZONTAL_ED,
-                  RUA5_HORIZONTAL_ED,
-                  RUA6_HORIZONTAL_DE, RUA7_HORIZONTAL_DE, RUA8_HORIZONTAL_DE, RUA9_HORIZONTAL_ED, RUA10_HORIZONTAL_ED,
-                  RUA11_HORIZONTAL_ED,
-                  RUA12_HORIZONTAL_DE, RUA13_HORIZONTAL_DE, RUA14_HORIZONTAL_DE, RUA15_VERTICAL_CB, RUA16_VERTICAL_CB,
-                  RUA17_VERTICAL_CB, RUA18_VERTICAL_CB,
-                  RUA19_VERTICAL_CB, RUA20_VERTICAL_CB, RUA21_VERTICAL_CB, RUA22_VERTICAL_CB, RUA23_VERTICAL_CB,
-                  RUA24_VERTICAL_CB, RUA25_VERTICAL_CB,
-                  RUA26_VERTICAL_CB, RUA27_DIAG_DE, RUA3_1_HORIZONTAL_ED, RUA0_1_HORIZONTAL_DE, RUA12_1_HORIZONTAL_DE,
-                  via_41, via_42, via_43, via_44, via_45, via_46, via_47, via_48, via_49, via_49_1, via_50, via_50_1,
-                  via_52,
-                  via_54, via_55, via_56, via_57, via_58_59, via_59, via_60, via_60_0, via_60_1, via_60_2, via_60_3,
-                  via_60_4, via_61,
 
-                  ])
+def create_sim():
+    # Create simulation
+    sim = Simulation()
 
-sim.create_gen({
-    'vehicle_rate': 30,
-    'vehicles': [
-        [2, {"path": [30, 12, 13, 14, 31, 33, 50, 47, 51, 52, 53, 54, 55, 56, 44, 45, 49, 48]}],
-        [2, {"path": [0, 29, 1, 2, 35, 36, 49, 48]}],
-        [2, {"path": [26, 29, 1, 2, 35, 36, 49, 48]}],
-        [2, {"path": [6, 7, 8, 41, 43, 45, 37, 38, 5, 4, 28, 3]}],
-        [2, {"path": [6, 7, 8, 41, 43, 45, 37, 38, 5, 4, 16, 15]}],
-        [1, {"path": [0, 29, 1, 2]}],
-        [1, {"path": [27, 29, 1, 2]}],
-        [1, {"path": [5, 4, 28, 3]}],
-        [1, {"path": [26, 25, 24, 23]}],
-        [1, {"path": [26, 25, 24, 23]}],
-        [1, {"path": [6, 7, 8]}],
-        [1, {"path": [6, 7, 17, 18]}],
-        [1, {"path": [11, 10, 9]}],
-        [1, {"path": [15, 16, 17, 18]}],
-        [2, {"path": [30, 12, 13, 14, 20, 21, 22]}],
-        [1, {"path": [19, 20, 21, 22]}],
-        [1, {"path": [14, 31]}],
-    ]
-})
+    # Add multiple roads
+    sim.create_roads([RUA0_HORIZONTAL_DE, RUA1_HORIZONTAL_DE, RUA2_HORIZONTAL_DE, RUA3_HORIZONTAL_ED, RUA4_HORIZONTAL_ED,
+                      RUA5_HORIZONTAL_ED,
+                      RUA6_HORIZONTAL_DE, RUA7_HORIZONTAL_DE, RUA8_HORIZONTAL_DE, RUA9_HORIZONTAL_ED, RUA10_HORIZONTAL_ED,
+                      RUA11_HORIZONTAL_ED,
+                      RUA12_HORIZONTAL_DE, RUA13_HORIZONTAL_DE, RUA14_HORIZONTAL_DE, RUA15_VERTICAL_CB, RUA16_VERTICAL_CB,
+                      RUA17_VERTICAL_CB, RUA18_VERTICAL_CB,
+                      RUA19_VERTICAL_CB, RUA20_VERTICAL_CB, RUA21_VERTICAL_CB, RUA22_VERTICAL_CB, RUA23_VERTICAL_CB,
+                      RUA24_VERTICAL_CB, RUA25_VERTICAL_CB,
+                      RUA26_VERTICAL_CB, RUA27_DIAG_DE, RUA3_1_HORIZONTAL_ED, RUA0_1_HORIZONTAL_DE, RUA12_1_HORIZONTAL_DE,
+                      via_41, via_42, via_43, via_44, via_45, via_46, via_47, via_48, via_49, via_49_1, via_50, via_50_1,
+                      via_52,
+                      via_54, via_55, via_56, via_57, via_58_59, via_59, via_60, via_60_0, via_60_1, via_60_2, via_60_3,
+                      via_60_4, via_61,
 
-sim.create_signal([[0, 28], [27]], time=randint(20, 100))
-sim.create_signal([[4, 29], [16]], time=randint(20, 100))
-sim.create_signal([[6, 10], [17]], time=randint(20, 100))
-sim.create_signal([[30], []], time=randint(20, 100))
-sim.create_signal([[15], [12]], time=randint(20, 100))
-sim.create_signal([[19, 24], [13]], time=randint(20, 100))
-sim.create_signal([[31], [32]], time=randint(20, 100))
-sim.create_signal([[35, 37], [34]], time=randint(20, 100))
-sim.create_signal([[19, 24], [13]], time=randint(20, 100))
-sim.create_signal([[20, 25], [1, 5]], time=randint(20, 100))
-sim.create_signal([[19, 24], [13]], time=randint(20, 100))
-sim.create_signal([[7, 11], [21, 26]], time=randint(20, 100))
-sim.create_signal([[41], [39]], time=randint(20, 100))
-sim.create_signal([[43], [44]], time=randint(20, 100))
-sim.create_signal([[36, 46], [45]], time=randint(20, 100))
-sim.create_signal([[49], [33]], time=randint(20, 100))
-sim.create_signal([[50], []], time=randint(20, 100))
+                      ])
 
-# Start simulation
-win = Window(sim)
-win.offset = (-150, -110)
-data = win.run(steps_per_update=5, simulation_time=5*60)
+    sim.create_gen({
+        'vehicle_rate': 30,
+        'vehicles': [
+            [2, {"path": [30, 12, 13, 14, 31, 33, 50, 47, 51, 52, 53, 54, 55, 56, 44, 45, 49, 48]}],
+            [2, {"path": [0, 29, 1, 2, 35, 36, 49, 48]}],
+            [2, {"path": [26, 29, 1, 2, 35, 36, 49, 48]}],
+            [2, {"path": [6, 7, 8, 41, 43, 45, 37, 38, 5, 4, 28, 3]}],
+            [2, {"path": [6, 7, 8, 41, 43, 45, 37, 38, 5, 4, 16, 15]}],
+            [1, {"path": [0, 29, 1, 2]}],
+            [1, {"path": [27, 29, 1, 2]}],
+            [1, {"path": [5, 4, 28, 3]}],
+            [1, {"path": [26, 25, 24, 23]}],
+            [1, {"path": [26, 25, 24, 23]}],
+            [1, {"path": [6, 7, 8]}],
+            [1, {"path": [6, 7, 17, 18]}],
+            [1, {"path": [11, 10, 9]}],
+            [1, {"path": [15, 16, 17, 18]}],
+            [2, {"path": [30, 12, 13, 14, 20, 21, 22]}],
+            [1, {"path": [19, 20, 21, 22]}],
+            [1, {"path": [14, 31]}],
+        ]
+    })
 
-for road, d in data['road data'].items():
-    if mean([x[0] for x in d]) > 0:
-        print(road)
-        print("Car mean amount:", mean([x[0] for x in d]))
-        print("Car mean wait:", mean([x[1] for x in d]))
+    sim.create_signal([[0, 28], [27]], time=randint(20, 100))
+    sim.create_signal([[4, 29], [16]], time=randint(20, 100))
+    sim.create_signal([[6, 10], [17]], time=randint(20, 100))
+    sim.create_signal([[30], []], time=randint(20, 100))
+    sim.create_signal([[15], [12]], time=randint(20, 100))
+    sim.create_signal([[19, 24], [13]], time=randint(20, 100))
+    sim.create_signal([[31], [32]], time=randint(20, 100))
+    sim.create_signal([[35, 37], [34]], time=randint(20, 100))
+    sim.create_signal([[19, 24], [13]], time=randint(20, 100))
+    sim.create_signal([[20, 25], [1, 5]], time=randint(20, 100))
+    sim.create_signal([[19, 24], [13]], time=randint(20, 100))
+    sim.create_signal([[7, 11], [21, 26]], time=randint(20, 100))
+    sim.create_signal([[41], [39]], time=randint(20, 100))
+    sim.create_signal([[43], [44]], time=randint(20, 100))
+    sim.create_signal([[36, 46], [45]], time=randint(20, 100))
+    sim.create_signal([[49], [33]], time=randint(20, 100))
+    sim.create_signal([[50], []], time=randint(20, 100))
+
+    return sim
+
+
+results = {}
+
+for i in range(5):
+    sim = create_sim()
+    print(i)
+    # Start simulation
+    win = Window(sim)
+    win.offset = (-150, -110)
+    data = win.run(steps_per_update=5, simulation_time=4*60)
+
+    to_delete = []
+    iteration_result = {}
+
+    for road, d in data['road data'].items():
+        if mean([x[0] for x in d]) > 0:
+            mean_amount = mean([x[0] for x in d])
+            mean_wait = mean([x[1] for x in d])
+            iteration_result[road] = [mean_amount, mean_wait]
+
+    results[f"Simulation {i+1}"] = iteration_result
+
+with open("../analysis/results_with_ai.json", "w") as f:
+    json.dump(results, f)

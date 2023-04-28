@@ -1,12 +1,13 @@
-from . import Vehicle
 from .road import Road
 from copy import deepcopy
 from .vehicle_generator import VehicleGenerator
 from .traffic_signal import TrafficSignal
 
+
 class Simulation:
     def __init__(self, config={}):
         # Set default configuration
+        Road.ID = 0
         self.set_default_config()
 
         # Update configuration
@@ -77,7 +78,6 @@ class Simulation:
         # Increment time
         self.t += self.dt
         self.frame_count += 1
-
 
     def run(self, steps):
         for _ in range(steps):

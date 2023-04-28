@@ -1,0 +1,504 @@
+{
+  "Simulation 1": {
+    "Road 0": [
+      "Car mean amount: 0.0446927374301676",
+      "Car mean wait: 0.1005586592178771"
+    ],
+    "Road 1": [
+      "Car mean amount: 0.3854748603351955",
+      "Car mean wait: 1.318435754189944"
+    ],
+    "Road 2": [
+      "Car mean amount: 0.05027932960893855",
+      "Car mean wait: 0.12849162011173185"
+    ],
+    "Road 4": [
+      "Car mean amount: 0.027932960893854747",
+      "Car mean wait: 0.01675977653631285"
+    ],
+    "Road 5": [
+      "Car mean amount: 0.10614525139664804",
+      "Car mean wait: 0.8603351955307262"
+    ],
+    "Road 6": [
+      "Car mean amount: 3.6815642458100557",
+      "Car mean wait: 53.49162011173184"
+    ],
+    "Road 7": [
+      "Car mean amount: 1.452513966480447",
+      "Car mean wait: 24.217877094972067"
+    ],
+    "Road 10": [
+      "Car mean amount: 0.0223463687150838",
+      "Car mean wait: 0.055865921787709494"
+    ],
+    "Road 11": [
+      "Car mean amount: 0.20670391061452514",
+      "Car mean wait: 4.553072625698324"
+    ],
+    "Road 12": [
+      "Car mean amount: 0.5977653631284916",
+      "Car mean wait: 11.206703910614525"
+    ],
+    "Road 13": [
+      "Car mean amount: 2.9497206703910615",
+      "Car mean wait: 61.53631284916201"
+    ],
+    "Road 16": [
+      "Car mean amount: 0.1452513966480447",
+      "Car mean wait: 1.9608938547486034"
+    ],
+    "Road 21": [
+      "Car mean amount: 1.5195530726256983",
+      "Car mean wait: 48.87150837988827"
+    ],
+    "Road 25": [
+      "Car mean amount: 0.05027932960893855",
+      "Car mean wait: 0.25139664804469275"
+    ],
+    "Road 26": [
+      "Car mean amount: 0.46368715083798884",
+      "Car mean wait: 19.011173184357542"
+    ],
+    "Road 28": [
+      "Car mean amount: 0.03910614525139665",
+      "Car mean wait: 0.061452513966480445"
+    ],
+    "Road 29": [
+      "Car mean amount: 0.994413407821229",
+      "Car mean wait: 22.145251396648046"
+    ],
+    "Road 30": [
+      "Car mean amount: 0.9162011173184358",
+      "Car mean wait: 10.441340782122905"
+    ],
+    "Road 31": [
+      "Car mean amount: 0.0893854748603352",
+      "Car mean wait: 0.6703910614525139"
+    ],
+    "Road 35": [
+      "Car mean amount: 0.5195530726256983",
+      "Car mean wait: 3.6927374301675977"
+    ],
+    "Road 36": [
+      "Car mean amount: 1.5027932960893855",
+      "Car mean wait: 20.81564245810056"
+    ],
+    "Road 37": [
+      "Car mean amount: 0.5754189944134078",
+      "Car mean wait: 5.955307262569832"
+    ],
+    "Road 41": [
+      "Car mean amount: 0.664804469273743",
+      "Car mean wait: 10.12290502793296"
+    ],
+    "Road 43": [
+      "Car mean amount: 0.7039106145251397",
+      "Car mean wait: 4.569832402234637"
+    ],
+    "Road 50": [
+      "Car mean amount: 0.1452513966480447",
+      "Car mean wait: 1.9608938547486034"
+    ]
+  },
+  "Simulation 2": {
+    "Road 0": [
+      "Car mean amount: 0.8547486033519553",
+      "Car mean wait: 8.41340782122905"
+    ],
+    "Road 1": [
+      "Car mean amount: 1.6480446927374302",
+      "Car mean wait: 30.212290502793294"
+    ],
+    "Road 2": [
+      "Car mean amount: 0.055865921787709494",
+      "Car mean wait: 0.12290502793296089"
+    ],
+    "Road 4": [
+      "Car mean amount: 1.100558659217877",
+      "Car mean wait: 28.687150837988828"
+    ],
+    "Road 6": [
+      "Car mean amount: 2.7318435754189943",
+      "Car mean wait: 40.32960893854749"
+    ],
+    "Road 11": [
+      "Car mean amount: 0.0446927374301676",
+      "Car mean wait: 0.4245810055865922"
+    ],
+    "Road 12": [
+      "Car mean amount: 2.4860335195530725",
+      "Car mean wait: 63.77653631284916"
+    ],
+    "Road 13": [
+      "Car mean amount: 1.5977653631284916",
+      "Car mean wait: 28.027932960893853"
+    ],
+    "Road 15": [
+      "Car mean amount: 0.08379888268156424",
+      "Car mean wait: 2.346368715083799"
+    ],
+    "Road 16": [
+      "Car mean amount: 0.7374301675977654",
+      "Car mean wait: 25.675977653631286"
+    ],
+    "Road 17": [
+      "Car mean amount: 0.5027932960893855",
+      "Car mean wait: 6.29608938547486"
+    ],
+    "Road 19": [
+      "Car mean amount: 0.07262569832402235",
+      "Car mean wait: 0.43575418994413406"
+    ],
+    "Road 20": [
+      "Car mean amount: 0.7262569832402235",
+      "Car mean wait: 12.541899441340782"
+    ],
+    "Road 21": [
+      "Car mean amount: 0.11173184357541899",
+      "Car mean wait: 1.0614525139664805"
+    ],
+    "Road 25": [
+      "Car mean amount: 0.7932960893854749",
+      "Car mean wait: 19.681564245810055"
+    ],
+    "Road 26": [
+      "Car mean amount: 0.1787709497206704",
+      "Car mean wait: 1.3463687150837989"
+    ],
+    "Road 28": [
+      "Car mean amount: 0.18994413407821228",
+      "Car mean wait: 0.9832402234636871"
+    ],
+    "Road 29": [
+      "Car mean amount: 1.3519553072625698",
+      "Car mean wait: 25.70391061452514"
+    ],
+    "Road 30": [
+      "Car mean amount: 1.5083798882681565",
+      "Car mean wait: 33.13966480446928"
+    ],
+    "Road 31": [
+      "Car mean amount: 0.30726256983240224",
+      "Car mean wait: 3.7150837988826817"
+    ],
+    "Road 35": [
+      "Car mean amount: 0.3016759776536313",
+      "Car mean wait: 1.776536312849162"
+    ],
+    "Road 36": [
+      "Car mean amount: 0.00558659217877095",
+      "Car mean wait: 0.0"
+    ],
+    "Road 41": [
+      "Car mean amount: 0.26256983240223464",
+      "Car mean wait: 3.2513966480446927"
+    ],
+    "Road 43": [
+      "Car mean amount: 0.35195530726256985",
+      "Car mean wait: 3.1731843575418996"
+    ],
+    "Road 45": [
+      "Car mean amount: 0.26256983240223464",
+      "Car mean wait: 3.089385474860335"
+    ]
+  },
+  "Simulation 3": {
+    "Road 0": [
+      "Car mean amount: 1.9832402234636872",
+      "Car mean wait: 42.46368715083799"
+    ],
+    "Road 1": [
+      "Car mean amount: 0.7877094972067039",
+      "Car mean wait: 15.994413407821229"
+    ],
+    "Road 2": [
+      "Car mean amount: 0.09497206703910614",
+      "Car mean wait: 0.18994413407821228"
+    ],
+    "Road 4": [
+      "Car mean amount: 0.2905027932960894",
+      "Car mean wait: 1.6536312849162011"
+    ],
+    "Road 5": [
+      "Car mean amount: 0.6480446927374302",
+      "Car mean wait: 12.659217877094973"
+    ],
+    "Road 6": [
+      "Car mean amount: 0.7430167597765364",
+      "Car mean wait: 6.4525139664804465"
+    ],
+    "Road 7": [
+      "Car mean amount: 0.9720670391061452",
+      "Car mean wait: 9.94413407821229"
+    ],
+    "Road 12": [
+      "Car mean amount: 0.8156424581005587",
+      "Car mean wait: 8.46927374301676"
+    ],
+    "Road 13": [
+      "Car mean amount: 0.05027932960893855",
+      "Car mean wait: 0.0893854748603352"
+    ],
+    "Road 14": [
+      "Car mean amount: 0.00558659217877095",
+      "Car mean wait: 0.0"
+    ],
+    "Road 15": [
+      "Car mean amount: 0.03910614525139665",
+      "Car mean wait: 1.5139664804469273"
+    ],
+    "Road 16": [
+      "Car mean amount: 0.1340782122905028",
+      "Car mean wait: 1.011173184357542"
+    ],
+    "Road 17": [
+      "Car mean amount: 0.20670391061452514",
+      "Car mean wait: 0.888268156424581"
+    ],
+    "Road 20": [
+      "Car mean amount: 0.3128491620111732",
+      "Car mean wait: 3.8268156424581004"
+    ],
+    "Road 21": [
+      "Car mean amount: 0.09497206703910614",
+      "Car mean wait: 0.8547486033519553"
+    ],
+    "Road 27": [
+      "Car mean amount: 0.08379888268156424",
+      "Car mean wait: 0.6703910614525139"
+    ],
+    "Road 29": [
+      "Car mean amount: 0.8659217877094972",
+      "Car mean wait: 7.5474860335195535"
+    ],
+    "Road 30": [
+      "Car mean amount: 1.7877094972067038",
+      "Car mean wait: 41.87150837988827"
+    ],
+    "Road 31": [
+      "Car mean amount: 0.37988826815642457",
+      "Car mean wait: 3.3128491620111733"
+    ],
+    "Road 33": [
+      "Car mean amount: 0.01675977653631285",
+      "Car mean wait: 0.0223463687150838"
+    ],
+    "Road 35": [
+      "Car mean amount: 0.1787709497206704",
+      "Car mean wait: 0.6256983240223464"
+    ],
+    "Road 36": [
+      "Car mean amount: 0.5921787709497207",
+      "Car mean wait: 15.988826815642458"
+    ],
+    "Road 41": [
+      "Car mean amount: 0.6201117318435754",
+      "Car mean wait: 11.564245810055866"
+    ],
+    "Road 43": [
+      "Car mean amount: 0.40782122905027934",
+      "Car mean wait: 3.815642458100559"
+    ],
+    "Road 45": [
+      "Car mean amount: 0.01675977653631285",
+      "Car mean wait: 0.01675977653631285"
+    ],
+    "Road 49": [
+      "Car mean amount: 0.21787709497206703",
+      "Car mean wait: 2.122905027932961"
+    ],
+    "Road 50": [
+      "Car mean amount: 0.6536312849162011",
+      "Car mean wait: 12.659217877094973"
+    ]
+  },
+  "Simulation 4": {
+    "Road 0": [
+      "Car mean amount: 2.329608938547486",
+      "Car mean wait: 63.75977653631285"
+    ],
+    "Road 1": [
+      "Car mean amount: 1.0614525139664805",
+      "Car mean wait: 9.865921787709498"
+    ],
+    "Road 2": [
+      "Car mean amount: 0.12290502793296089",
+      "Car mean wait: 0.4301675977653631"
+    ],
+    "Road 5": [
+      "Car mean amount: 0.39664804469273746",
+      "Car mean wait: 4.418994413407821"
+    ],
+    "Road 6": [
+      "Car mean amount: 2.189944134078212",
+      "Car mean wait: 39.92178770949721"
+    ],
+    "Road 7": [
+      "Car mean amount: 1.558659217877095",
+      "Car mean wait: 22.18435754189944"
+    ],
+    "Road 8": [
+      "Car mean amount: 0.01675977653631285",
+      "Car mean wait: 0.00558659217877095"
+    ],
+    "Road 10": [
+      "Car mean amount: 0.659217877094972",
+      "Car mean wait: 11.363128491620111"
+    ],
+    "Road 12": [
+      "Car mean amount: 2.2402234636871508",
+      "Car mean wait: 63.754189944134076"
+    ],
+    "Road 13": [
+      "Car mean amount: 0.08379888268156424",
+      "Car mean wait: 0.5865921787709497"
+    ],
+    "Road 16": [
+      "Car mean amount: 0.9106145251396648",
+      "Car mean wait: 25.122905027932962"
+    ],
+    "Road 17": [
+      "Car mean amount: 0.055865921787709494",
+      "Car mean wait: 0.30726256983240224"
+    ],
+    "Road 19": [
+      "Car mean amount: 0.664804469273743",
+      "Car mean wait: 19.8268156424581"
+    ],
+    "Road 24": [
+      "Car mean amount: 0.09497206703910614",
+      "Car mean wait: 0.8547486033519553"
+    ],
+    "Road 29": [
+      "Car mean amount: 2.201117318435754",
+      "Car mean wait: 60.770949720670394"
+    ],
+    "Road 30": [
+      "Car mean amount: 2.3798882681564244",
+      "Car mean wait: 76.22905027932961"
+    ],
+    "Road 31": [
+      "Car mean amount: 0.0111731843575419",
+      "Car mean wait: 0.00558659217877095"
+    ],
+    "Road 35": [
+      "Car mean amount: 0.40782122905027934",
+      "Car mean wait: 4.106145251396648"
+    ],
+    "Road 36": [
+      "Car mean amount: 1.1843575418994414",
+      "Car mean wait: 21.11173184357542"
+    ],
+    "Road 41": [
+      "Car mean amount: 1.0726256983240223",
+      "Car mean wait: 28.094972067039105"
+    ],
+    "Road 45": [
+      "Car mean amount: 0.09497206703910614",
+      "Car mean wait: 0.5195530726256983"
+    ]
+  },
+  "Simulation 5": {
+    "Road 0": [
+      "Car mean amount: 0.9776536312849162",
+      "Car mean wait: 14.547486033519553"
+    ],
+    "Road 1": [
+      "Car mean amount: 2.0670391061452515",
+      "Car mean wait: 47.08379888268156"
+    ],
+    "Road 2": [
+      "Car mean amount: 0.01675977653631285",
+      "Car mean wait: 0.00558659217877095"
+    ],
+    "Road 5": [
+      "Car mean amount: 0.7877094972067039",
+      "Car mean wait: 11.23463687150838"
+    ],
+    "Road 6": [
+      "Car mean amount: 2.078212290502793",
+      "Car mean wait: 21.150837988826815"
+    ],
+    "Road 7": [
+      "Car mean amount: 0.5251396648044693",
+      "Car mean wait: 6.195530726256983"
+    ],
+    "Road 11": [
+      "Car mean amount: 0.12290502793296089",
+      "Car mean wait: 0.888268156424581"
+    ],
+    "Road 12": [
+      "Car mean amount: 3.1340782122905027",
+      "Car mean wait: 125.40782122905028"
+    ],
+    "Road 13": [
+      "Car mean amount: 2.670391061452514",
+      "Car mean wait: 46.391061452513966"
+    ],
+    "Road 15": [
+      "Car mean amount: 0.3743016759776536",
+      "Car mean wait: 7.715083798882682"
+    ],
+    "Road 17": [
+      "Car mean amount: 0.17318435754189945",
+      "Car mean wait: 0.88268156424581"
+    ],
+    "Road 20": [
+      "Car mean amount: 0.1340782122905028",
+      "Car mean wait: 1.541899441340782"
+    ],
+    "Road 25": [
+      "Car mean amount: 0.36312849162011174",
+      "Car mean wait: 5.893854748603352"
+    ],
+    "Road 26": [
+      "Car mean amount: 0.16759776536312848",
+      "Car mean wait: 1.4022346368715084"
+    ],
+    "Road 28": [
+      "Car mean amount: 0.12290502793296089",
+      "Car mean wait: 1.2905027932960893"
+    ],
+    "Road 29": [
+      "Car mean amount: 0.7597765363128491",
+      "Car mean wait: 11.664804469273744"
+    ],
+    "Road 30": [
+      "Car mean amount: 0.8212290502793296",
+      "Car mean wait: 14.256983240223464"
+    ],
+    "Road 31": [
+      "Car mean amount: 0.2011173184357542",
+      "Car mean wait: 1.8212290502793296"
+    ],
+    "Road 35": [
+      "Car mean amount: 0.3240223463687151",
+      "Car mean wait: 4.256983240223463"
+    ],
+    "Road 36": [
+      "Car mean amount: 0.40782122905027934",
+      "Car mean wait: 4.932960893854749"
+    ],
+    "Road 37": [
+      "Car mean amount: 0.2011173184357542",
+      "Car mean wait: 0.5363128491620112"
+    ],
+    "Road 41": [
+      "Car mean amount: 1.23463687150838",
+      "Car mean wait: 33.910614525139664"
+    ],
+    "Road 43": [
+      "Car mean amount: 0.31843575418994413",
+      "Car mean wait: 2.983240223463687"
+    ],
+    "Road 45": [
+      "Car mean amount: 0.29608938547486036",
+      "Car mean wait: 3.2346368715083798"
+    ],
+    "Road 49": [
+      "Car mean amount: 0.39106145251396646",
+      "Car mean wait: 13.88268156424581"
+    ]
+  }
+}
