@@ -269,19 +269,18 @@ class Window:
                         cos=road.angle_cos,
                         sin=road.angle_sin
                     )   
-            
-
-
-            # TODO: Draw road arrow
 
     def draw_vehicle(self, vehicle, road):
-        l, h = vehicle.l,  2
+        l, h = 8 if vehicle.l > 4 else 4,  2
         sin, cos = road.angle_sin, road.angle_cos
 
         x = road.start[0] + cos * vehicle.x 
         y = road.start[1] + sin * vehicle.x 
 
-        self.rotated_box((x, y), (l, h), cos=cos, sin=sin, centered=True)
+        if l == 8:
+            self.rotated_box((x, y), (l, h), cos=cos, sin=sin, centered=True, color=(255, 255, 0))
+        else:
+            self.rotated_box((x, y), (l, h), cos=cos, sin=sin, centered=True)
 
     def draw_vehicles(self):
         for road in self.sim.roads:

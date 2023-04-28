@@ -93,37 +93,53 @@ sim.create_roads([RUA0_HORIZONTAL_DE, RUA1_HORIZONTAL_DE, RUA2_HORIZONTAL_DE, RU
                   ])
 
 sim.create_gen({
-    'vehicle_rate': 20,
+    'vehicle_rate': 30,
     'vehicles': [
-        [1, {"path": [30, 12, 13, 14, 31, 33, 50, 47, 51, 52, 53, 54, 55, 56, 44, 45, 49, 48]}],
-        [1, {"path": [0, 29, 1, 2, 35, 36, 49, 48]}],
-        [1, {"path": [26, 29, 1, 2, 35, 36, 49, 48]}],
-        [1, {"path": [6, 7, 8, 41, 43, 45, 37, 38, 5, 4, 28, 3]}],
-        [1, {"path": [6, 7, 8, 41, 43, 45, 37, 38, 5, 4, 16, 15]}],
-
-        # [1, {"path": [0, 29, 1, 2]}],
-        # [1, {"path": [27, 29, 1, 2]}],
-        # [1, {"path": [5, 4, 28, 3]}],
-        # [1, {"path": [26, 25, 24, 23]}],
-        # [1, {"path": [26, 25, 24, 23]}],
-        # [1, {"path": [6, 7, 8]}],
-        # [1, {"path": [6, 7, 17, 18]}],
-        # [1, {"path": [11, 10, 9]}],
-        # [1, {"path": [15, 16, 17, 18]}],
-        # [1, {"path": [30, 12, 13, 14, 20, 21, 22]}],
-        # [1, {"path": [19, 20, 21, 22]}],
-        # [1, {"path": [14, 31]}],
+        [2, {"path": [30, 12, 13, 14, 31, 33, 50, 47, 51, 52, 53, 54, 55, 56, 44, 45, 49, 48]}],
+        [2, {"path": [0, 29, 1, 2, 35, 36, 49, 48]}],
+        [2, {"path": [26, 29, 1, 2, 35, 36, 49, 48]}],
+        [2, {"path": [6, 7, 8, 41, 43, 45, 37, 38, 5, 4, 28, 3]}],
+        [2, {"path": [6, 7, 8, 41, 43, 45, 37, 38, 5, 4, 16, 15]}],
+        [1, {"path": [0, 29, 1, 2]}],
+        [1, {"path": [27, 29, 1, 2]}],
+        [1, {"path": [5, 4, 28, 3]}],
+        [1, {"path": [26, 25, 24, 23]}],
+        [1, {"path": [26, 25, 24, 23]}],
+        [1, {"path": [6, 7, 8]}],
+        [1, {"path": [6, 7, 17, 18]}],
+        [1, {"path": [11, 10, 9]}],
+        [1, {"path": [15, 16, 17, 18]}],
+        [2, {"path": [30, 12, 13, 14, 20, 21, 22]}],
+        [1, {"path": [19, 20, 21, 22]}],
+        [1, {"path": [14, 31]}],
     ]
 })
 
-sim.create_signal([[0, 1, 28, 4, 5, 29, 12, 7, 6, 10, 11, 13, 30, 31, 33, 34, 36, 41, 44, 46],
-                   [15, 16, 17, 19, 20, 21, 27, 26, 25, 24, 32, 35, 37, 39, 45, 43, 49, 50]])
+sim.create_signal([[0, 28], [27]], time=randint(20, 100))
+sim.create_signal([[4, 29], [16]], time=randint(20, 100))
+sim.create_signal([[6, 10], [17]], time=randint(20, 100))
+sim.create_signal([[30], []], time=randint(20, 100))
+sim.create_signal([[15], [12]], time=randint(20, 100))
+sim.create_signal([[19, 24], [13]], time=randint(20, 100))
+sim.create_signal([[31], [32]], time=randint(20, 100))
+sim.create_signal([[35, 37], [34]], time=randint(20, 100))
+sim.create_signal([[19, 24], [13]], time=randint(20, 100))
+sim.create_signal([[20, 25], [1, 5]], time=randint(20, 100))
+sim.create_signal([[19, 24], [13]], time=randint(20, 100))
+sim.create_signal([[7, 11], [21, 26]], time=randint(20, 100))
+sim.create_signal([[41], [39]], time=randint(20, 100))
+sim.create_signal([[43], [44]], time=randint(20, 100))
+sim.create_signal([[36, 46], [45]], time=randint(20, 100))
+sim.create_signal([[49], [33]], time=randint(20, 100))
+sim.create_signal([[50], []], time=randint(20, 100))
 
 # Start simulation
 win = Window(sim)
 win.offset = (-150, -110)
-data = win.run(steps_per_update=5, simulation_time=60)
+data = win.run(steps_per_update=5, simulation_time=5*60)
+
 for road, d in data['road data'].items():
-    print(road)
-    print("Car mean amount:", mean([x[0] for x in d]))
-    print("Car mean wait:", mean([x[1] for x in d]))
+    if mean([x[0] for x in d]) > 0:
+        print(road)
+        print("Car mean amount:", mean([x[0] for x in d]))
+        print("Car mean wait:", mean([x[1] for x in d]))

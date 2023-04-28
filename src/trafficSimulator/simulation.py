@@ -35,9 +35,9 @@ class Simulation:
         self.generators.append(gen)
         return gen
 
-    def create_signal(self, roads, config={}):
+    def create_signal(self, roads, config={}, time=70):
         roads = [[self.roads[i] for i in road_group] for road_group in roads]
-        sig = TrafficSignal(roads, config)
+        sig = TrafficSignal(roads, config, time)
         self.traffic_signals.append(sig)
         return sig
 
@@ -90,7 +90,7 @@ class Simulation:
         for road in self.roads:
             for vehicle in road.vehicles:
                 if vehicle.stopped:
-                    vehicle.unstop(self.t)
+                    vehicle.unstop()
 
             data[f"Road {road.id}"] = road.data
 

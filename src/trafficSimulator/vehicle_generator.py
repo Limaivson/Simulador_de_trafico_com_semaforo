@@ -1,5 +1,5 @@
 from .vehicle import Vehicle
-from numpy.random import randint
+from numpy.random import randint, choice
 
 class VehicleGenerator:
     def __init__(self, sim, config={}):
@@ -33,6 +33,7 @@ class VehicleGenerator:
         for (weight, config) in self.vehicles:
             r -= weight
             if r <= 0:
+                config['l'] = 4 * choice([1, 2])
                 return Vehicle(config)
 
     def update(self):
