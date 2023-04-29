@@ -149,18 +149,7 @@ for i in range(5):
     # Start simulation
     win = Window(sim)
     win.offset = (-150, -110)
-    data = win.run(steps_per_update=5, simulation_time=4*60)
+    data = win.run(steps_per_update=5)
 
     to_delete = []
     iteration_result = {}
-
-    for road, d in data['road data'].items():
-        if mean([x[0] for x in d]) > 0:
-            mean_amount = mean([x[0] for x in d])
-            mean_wait = mean([x[1] for x in d])
-            iteration_result[road] = [mean_amount, mean_wait]
-
-    results[f"Simulation {i+1}"] = iteration_result
-
-with open("../analysis/results_with_ai.json", "w") as f:
-    json.dump(results, f)

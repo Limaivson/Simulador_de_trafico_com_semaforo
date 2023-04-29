@@ -33,7 +33,8 @@ class VehicleGenerator:
         for (weight, config) in self.vehicles:
             r -= weight
             if r <= 0:
-                config['l'] = 4 * choice([1, 2])
+                bus = randint(1, 6)
+                config['l'] = 4 if bus != 5 else 8
                 return Vehicle(config)
 
     def update(self):

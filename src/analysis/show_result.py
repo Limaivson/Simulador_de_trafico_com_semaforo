@@ -1,5 +1,5 @@
 import json
-from numpy import mean
+import numpy as np
 import matplotlib.pylab as plt
 
 
@@ -18,7 +18,7 @@ with open('results_with_ai.json', 'r') as f_with_ai:
                     total_wait.append(float(data_ai[sim][road][1]))
 
             if total_wait:
-                total_wait = mean(total_wait)
+                total_wait = np.mean(total_wait)
             else:
                 total_wait = 0
 
@@ -31,7 +31,7 @@ with open('results_with_ai.json', 'r') as f_with_ai:
                     total_wait.append(float(data_no_ai[sim][road][1].replace("Car mean wait: ", "")))
 
             if total_wait:
-                total_wait = mean(total_wait)
+                total_wait = np.mean(total_wait)
             else:
                 total_wait = 0
 
@@ -48,5 +48,13 @@ with open('results_with_ai.json', 'r') as f_with_ai:
     plt.ylim((0, 55))
     plt.legend()
     plt.title("Comparação de tempos de espera médios")
+    plt.grid()
+    plt.show()
+
+    # GRAPHIC WITH TIME DIFFERENCES WITH AND WITHOUT ALGORITHM
+    plt.plot(x_with, np.array(y_without) - np.array(y_with), label="Tempo economizado por via após aplicação do algoritmo")
+    plt.plot(x_without, [(np.array(y_without) - np.array(y_with)).mean() for _ in range(len(y_without))], label="Média de tempo economizado")
+    plt.legend()
+    plt.title("Diferença de tempos de espera médios")
     plt.grid()
     plt.show()
