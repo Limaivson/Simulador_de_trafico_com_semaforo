@@ -140,3 +140,5 @@ cython_debug/
 # Junk files :)
 junk/
 gen_algorithm/algorithm_library_2_opt.ipynb
+
+.idea/
