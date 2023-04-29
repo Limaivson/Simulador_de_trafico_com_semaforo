@@ -1,14 +1,14 @@
 import random
 
 class TrafficLight:
-    time_min_range = [15,35]
+    time_min_range =  [15,35]
     time_max_range = [35,100]
-    coef_range = [0.0000001,0.9999999]
+    coef_range = [0.001,0.85]
 
     def __init__(self,time_min:float, time_max:float, coef:float):
-        self.__time_min = self.time_min_range[0] + (self.time_min_range[1] - self.time_min_range[0])*time_min/100
-        self.__time_max = self.time_max_range[0] + (self.time_max_range[1] - self.time_max_range[0])*time_max/100
-        self.__coef = self.coef_range[0] + (self.coef_range[1] - self.coef_range[0])*coef/100
+        self.__time_min = time_min
+        self.__time_max = time_max
+        self.__coef     = coef
     
     def __repr__(self) -> str:
         return f'TrafficLight(time_min: {self.__time_min}, time_max: {self.__time_max}, coef: {self.__coef})'
@@ -46,6 +46,19 @@ class TrafficLight:
             x = random.random()
             coef = self.get_coef() * x + other.get_coef() * (1-x)
             sorting = False
+
+            # mutation
+            if random.random() < 0.01: # 01% chance mutation
+                delta_t_min = self.time_min_range[1] - self.time_min_range[0]
+                delta_t_max = self.time_max_range[1] - self.time_max_range[0]
+                delta_coef  = self.coef_range[1]     -     self.coef_range[0]
+                choice = random.randint(1, 3)
+                if choice == 1:
+                    time_min += delta_t_min * 0.2 * (random.random() - 0.5) # -10% to 10% value range mutation
+                elif choice == 2:
+                    time_max += delta_t_max * 0.2 * (random.random() - 0.5) # -10% to 10% value range mutation
+                elif choice == 3:
+                    coef     += delta_coef  * 0.2 * (random.random() - 0.5) # -10% to 10% value range mutation
             
             if time_min >= time_max:
                 sorting = True
