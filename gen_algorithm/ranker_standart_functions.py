@@ -1,5 +1,3 @@
-from traffic_sim import Street
-
 def green_time(time_min: float, time_max: float, coef: float, cars_count: int, waves_impact: float) -> float:
     try:
         cars_count *= 0.5

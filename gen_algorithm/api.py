@@ -1,5 +1,6 @@
-from model_traffic_light import TrafficLight
-from ranker_standart_functions import *
+from gen_algorithm.model_traffic_light import TrafficLight
+from gen_algorithm.ranker_standart_functions import *
+
 
 class TrafficManager(TrafficLight):
     def __init__(self, streets: list, green_light_street_index: int):
@@ -23,7 +24,7 @@ class TrafficManager(TrafficLight):
         self.streets[street_index].wait_time_actualization(wait_time)
 
     def street_car_count_actualization(self, count: int, street_index: int) -> None:
-        self.streets[street_index].car_count_actualization(count)
+        self.streets[street_index].street_car_count_actualization(count)
 
     def car_wave(self, wave_count: int, street_index: int, time_simulation: float) -> None:
         self.streets[street_index].car_wave(wave_count, time_simulation)
@@ -31,6 +32,7 @@ class TrafficManager(TrafficLight):
     def select_opened_way(self, time_simulation: float) -> int:
         """Returns [street_index, green_time, wave_count], needs to call next traffic lights car_wave method for this wave."""
         worst_impact = 0
+        worst_street_index = 0
         for street_index in range(len(self.streets)):
             if street_index != self.green_light_street_index:
                 # street impact method
@@ -74,6 +76,9 @@ class Street:
     
     def get_waves(self) -> list:
         return self.__waves
+
+    def get_wait_time(self):
+        return self.__wait_time
 
 
 

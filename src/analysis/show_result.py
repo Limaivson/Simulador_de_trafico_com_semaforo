@@ -3,48 +3,50 @@ from numpy import mean
 import matplotlib.pylab as plt
 
 
-results = {'mean amount': {}, 'mean wait': {}}
+results = {'with ai': {}, 'without ai': {}}
 
+with open('results_with_ai.json', 'r') as f_with_ai:
+    with open('results_no_ai.json', 'r') as f_without_ai:
+        data_ai = json.load(f_with_ai)
+        data_no_ai = json.load(f_without_ai)
+        for i in range(60):
+            road = f"Road {i}"
+            total_wait = []
+            total_amount = []
+            for sim in data_ai:
+                if road in data_ai[sim]:
+                    total_wait.append(float(data_ai[sim][road][1]))
 
-with open('results_no_ai.json', 'r') as f:
-    data = json.load(f)
-    for i in range(60):
-        total_wait = []
-        total_amount = []
-        road = f"Road {i}"
-        for sim in data:
-            if road in data[sim]:
-                total_wait.append(float(data[sim][road][1].replace('Car mean wait: ', '')))
-                total_amount.append(float(data[sim][road][0].replace('Car mean amount: ', '')))
+            if total_wait:
+                total_wait = mean(total_wait)
+            else:
+                total_wait = 0
 
-        if total_wait:
-            total_wait = mean(total_wait)
-        else:
-            total_wait = 0
+            results['with ai'][i] = total_wait
 
-        if total_amount:
-            total_amount = mean(total_amount)
-        else:
-            total_amount = 0
+            total_wait = []
+            total_amount = []
+            for sim in data_no_ai:
+                if road in data_no_ai[sim]:
+                    total_wait.append(float(data_no_ai[sim][road][1].replace("Car mean wait: ", "")))
 
-        results['mean wait'][i] = total_wait
-        results['mean amount'][i] = total_amount
+            if total_wait:
+                total_wait = mean(total_wait)
+            else:
+                total_wait = 0
 
-    lists = sorted(results['mean wait'].items())  # sorted by key, return a list of tuples
+            results['without ai'][i] = total_wait
 
-    x, y = zip(*lists)  # unpack a list of pairs into two tuples
+    results_ai = sorted(results['with ai'].items())  # sorted by key, return a list of tuples
+    results_default = sorted(results['without ai'].items())
 
-    plt.plot(x, y)
-    plt.title("Wait Times")
+    x_with, y_with = zip(*results_ai)  # unpack a list of pairs into two tuples
+    x_without, y_without = zip(*results_default)
+
+    plt.plot(x_with, y_with, label="Com Algoritmo")
+    plt.plot(x_without, y_without, label="Sem Algoritmo")
+    plt.ylim((0, 55))
+    plt.legend()
+    plt.title("Comparação de tempos de espera médios")
     plt.grid()
     plt.show()
-    
-    lists = sorted(results['mean amount'].items())  # sorted by key, return a list of tuples
-
-    x, y = zip(*lists)  # unpack a list of pairs into two tuples
-    
-    plt.plot(x, y)
-    plt.title("Vehicle Amount")
-    plt.grid()
-    plt.show()
-    # plt.savefig('wait_times')

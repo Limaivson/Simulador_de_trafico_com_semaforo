@@ -1,7 +1,9 @@
 from src.trafficSimulator import *
-import random
+from random import randint
 from numpy import mean
 import json
+from trafficSimulator.simulation import Simulation
+from trafficSimulator.window import Window
 
 RUA0_HORIZONTAL_DE = ((0, 100), (100, 100))
 RUA0_1_HORIZONTAL_DE = ((100, 100), (148, 100))

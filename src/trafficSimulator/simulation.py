@@ -52,7 +52,7 @@ class Simulation:
             gen.update()
 
         for signal in self.traffic_signals:
-            signal.update(self)
+            signal.update(self, self.t, self.dt)
 
         # Check roads for out of bounds vehicle
         for road in self.roads:
